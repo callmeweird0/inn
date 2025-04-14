@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaProd</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="fade-in">InnovaProd</h1>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#a-propos">À propos de nous</a></li>
+                <li><a href="#activites">Activités précédentes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="accueil" class="section">
+        <img src="images/accueil.jpg" alt="Accueil" class="section-image">
+        <h2>Bienvenue chez InnovaProd</h2>
+        <p>Votre partenaire en marketing digital et production de contenu.</p>
+    </section>
+    
+    <section id="a-propos" class="section">
+        <img src="images/a-propos.jpg" alt="À propos de nous" class="section-image">
+        <h2>À propos de nous</h2>
+        <p>InnovaProd est une agence spécialisée en stratégie marketing et création de contenu.</p>
+    </section>
+    
+    <section id="activites" class="section">
+        <img src="images/activites.jpg" alt="Activités précédentes" class="section-image">
+        <h2>Nos activités précédentes</h2>
+        <p>Découvrez nos projets réalisés pour divers clients.</p>
+    </section>
+    
+    <section id="contact" class="section">
+        <h2>Contactez-nous</h2>
+        <form id="contact-form">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit" class="bounce">Envoyer</button>
+        </form>
+        <p id="form-message"></p>
+    </section>
+    
+    <footer class="fade-in">
+        <p>&copy; 2025 InnovaProd - Tous droits réservés</p>
+    </footer>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header animation */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        header {
+            animation: slideDown 1s ease-out;
+            background: linear-gradient(to right, #003366, #00aaff);
+            color: white;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 80px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Sections are initially invisible */
+            transform: translateY(50px); /* Start off-screen */
+            transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .zoom-in {
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        input, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px;
+            background: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005599;
+        }
+
+        footer {
+            background: linear-gradient(to right, #003366, #00aaff);
+            color: white;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+    
+    <script>
+        // Intersection Observer for scroll animations
+        const sections = document.querySelectorAll('.section');
+        
+        const options = {
+            threshold: 0.5 // Trigger animation when 50% of the section is in the viewport
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in'); // Apply the animation
+                    entry.target.style.opacity = '1'; // Ensure visibility
+                    entry.target.style.transform = 'translateY(0)'; // Bring it into view
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Form submission feedback
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('form-message').textContent = 'Merci pour votre message ! Nous vous répondrons bientôt.';
+            this.reset();
+        });
+    </script>
+</body>
+</html>

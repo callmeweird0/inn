@@ -1,0 +1,263 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    transition: background-color 0.5s ease;
+}
+
+header {
+    background-color: #ffffff;
+    color: #0e2d67;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Adjusted logo size and spacing */
+header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 28px; /* Increased font size */
+    flex-grow: 1; /* Pushes the nav away */
+}
+
+header .logo img {
+    width: 60px; /* Increased size */
+    height: 60px;
+    margin-right: 20px; /* Added more spacing */
+}
+
+header nav {
+    flex-grow: 2; /* Ensures spacing */
+    text-align: right;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #0e2d67;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #0e2d67;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    animation: fadeIn 2s ease-in;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #0f0e22;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    animation: fadeIn 2s ease-in;
+}
+
+/* Section */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeIn 2s ease-in;
+}
+
+/* Services */
+.service-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.service-card {
+    background-color: #ecf0f1;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Portfolio */
+.portfolio-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.portfolio-container img {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(7, 30, 113, 0.1);
+}
+
+/* Testimonials */
+.testimonials-container blockquote {
+    font-style: italic;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-left: 5px solid #0e2d67;
+}
+
+/* Contact Form */
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#contact-form button {
+    background-color: #0e2d67;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #0e2d67;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.activity {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.activity h3 {
+    color: #0e2d67;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.activity ul {
+    list-style: none;
+    padding: 0;
+}
+
+.activity ul li {
+    padding: 5px 0;
+    font-size: 16px;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.activity-img {
+    width: 60%; /* Ajustez selon vos besoins */
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.social-media {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-media a:hover {
+    color: #0077b5; /* Bleu LinkedIn, change selon le réseau */
+    transform: scale(1.2);
+}
+
+.activity-img {
+    width: 80%;
+    max-width: 300px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .service-container {
+        flex-direction: column;
+    }
+
+    .service-card {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .portfolio-container img {
+        width: 80%;
+        margin: 10px auto;
+    }
+}
+@media screen and (max-width: 768px) {
+    .logo img {
+        width: 150px; /* Réduction pour les petits écrans */
+    }
+}
